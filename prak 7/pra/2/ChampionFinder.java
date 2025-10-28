@@ -12,8 +12,7 @@ public final class ChampionFinder {
         // 1. Lengkapi parameter generik yang menerapkan interface Comparable.
         // 2. Bandingkan kedua kandidat dan kembalikan kandidat dengan nilai terbesar.
         // HINT: gunakan fungsi compareTo
-        int hasil = a.compareTo(b);
-        if (hasil > 0){
+        if (a.compareTo(b) > 0){
             return a;
         }
         else {
