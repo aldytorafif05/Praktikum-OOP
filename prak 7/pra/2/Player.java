@@ -1,11 +1,11 @@
-public class Player implements Comparable<Player> {
+class Player implements Comparable<Player> {
     // TODO:
     // 1. Tambahkan atribut final untuk menyimpan nama dengan tipe String.
     // 2. Tambahkan atribut final untuk menyimpan skor dengan tipe int.
-    public final String name;
-    public final int score;
+    final String name;
+    final int score;
 
-    public Player(String name, int score) {
+    Player(String name, int score) {
         // TODO:
         // 1. Lengkapi parameter konstruktor dengan tipe yang sesuai.
         // 2. Inisialisasikan atribut nama dan skor menggunakan parameter yang diterima.
@@ -13,14 +13,14 @@ public class Player implements Comparable<Player> {
         this.score = score;
     }
 
-    public Player boostScore(int bonus) {
+    Player boostScore(int bonus) {
         // TODO:
         // 1. Lengkapi parameter dengan tipe yang sesuai untuk bonus skor.
         // 2. Kembalikan objek Player baru dengan skor yang sudah ditambahkan bonus.
         return new Player(name, this.score + bonus);
     }
 
-    public Player faceOff(Player challenger) {
+    Player faceOff(Player challenger) {
         // TODO:
         // 1. Lengkapi parameter dengan tipe Player.
         // 2. Gunakan ChampionFinder.findChampion untuk menentukan pemenang antara this dan challenger.
