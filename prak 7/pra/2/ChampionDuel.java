@@ -32,6 +32,6 @@ final class ChampionDuel<T extends Comparable<T>> {
         // Kembalikan string <tanpa newline dimanapun>:
         // "<label> champion between <player pertama> and <player kedua> is: <hasil
         // decide champion>"
-        return label + " champion betweeen " + first + " and " + second + " is: " + decideChampion();
+        return label + " champion between " + first + " and " + second + " is: " + decideChampion();
     }
 }
