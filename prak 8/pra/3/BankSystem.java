@@ -20,11 +20,11 @@ public class BankSystem {
        Tidak ada nilai kembalian. */
     public void addAccount(BankAccount account) {
         // Type your code
-        if (count >= accounts.length){
-            throw new IllegalStateException("Sistem sudah penuh.");
-        }
         if (account == null){
             throw new NullPointerException("Akun tidak boleh null.");
+        }
+        if (count == accounts.length){
+            throw new IllegalStateException("Sistem sudah penuh.");
         }
         accounts[count] = account;
         count++;
@@ -37,7 +37,7 @@ public class BankSystem {
     public BankAccount findAccount(String owner) {
         // Type your code
         for(int i=0; i<count; i++){
-            if (owner.equals(accounts[i].getOwner())){
+            if (accounts[i].getOwner() != null && owner != null && owner.equals(accounts[i].getOwner())){
                 return accounts[i];
             }
         }
@@ -52,11 +52,11 @@ public class BankSystem {
        Jika belum ada akun, tampilkan pesan "(tidak ada akun)". */
     public void displayAll() {
         // Type your code
+        System.out.println("Daftar Akun:");
         if (count == 0){
             System.out.println("(tidak ada akun)");
         }
         else{
-            System.out.println("Daftar Akun:");
             for (int i=0; i<count; i++){
                 System.out.println("- " + accounts[i].toString());
             }
