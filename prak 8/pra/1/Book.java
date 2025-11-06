@@ -36,7 +36,7 @@ public class Book {
   }
 
   private boolean isValidISBN(String isbn){
-    if (isbn.trim() == null){
+    if (isbn == null || isbn.trim().isEmpty()){
       return false;
     }
     String cleanISBN = isbn.replaceAll("[\\s-]", "");
