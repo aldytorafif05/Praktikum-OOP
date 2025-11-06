@@ -27,11 +27,13 @@ public class LibraryException extends Exception {
     public LibraryException(String message){
         super(message);
         this.timestamp = System.currentTimeMillis();
+        this.errorCode = "GENERAL";
     }
 
     public LibraryException(String message, Throwable cause){
         super(message, cause);
         this.timestamp = System.currentTimeMillis();
+        this.errorCode = "GENERAL";
     }
 
     public LibraryException(String message, String errorCode){

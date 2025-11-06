@@ -113,7 +113,7 @@ public class Member {
         throw new LibraryException("Anggota " + name + " sudah meminjam buku " + bookTitle + ".", "ALREADY_BORROWED");
       }
       if (borrowedBooks.size() >= maxBorrowLimit){
-        throw new LibraryException("Anggota " + name + " telah mencapai batas peminjaman (" + borrowedBooks.size() + "/" + maxBorrowLimit + ").");
+        throw new LibraryException("Anggota " + name + " telah mencapai batas peminjaman (" + borrowedBooks.size() + "/" + maxBorrowLimit + ").", "LIMIT_EXCEEDED");
       }
       borrowedBooks.add(bookTitle);
     }
