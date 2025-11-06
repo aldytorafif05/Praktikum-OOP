@@ -4,12 +4,12 @@ public class BankAccount {
 
     /* TODO : Lengkapi konstruktor BankAccount(String owner, double balance)
        Konstruktor ini membuat akun baru dengan pemilik dan saldo awal.
-       - Jika saldo awal negatif, lempar InvalidAmountException.
+       - Jika saldo awal negatif, lempar InvalidAmountException("Saldo awal tidak boleh negatif.").
        Tidak ada nilai kembalian (void). */
     public BankAccount(String owner, double balance) throws InvalidAmountException {
         // Type your code
-        if (balance < 0){
-            throw new InvalidAmountException("Nominal transaksi tidak boleh negatif.");
+        if(balance < 0){
+            throw new InvalidAmountException("Saldo awal tidak boleh negatif.");
         }
         this.owner = owner;
         this.balance = balance;
@@ -31,29 +31,29 @@ public class BankAccount {
 
     /* TODO : Lengkapi method deposit(double amount)
        Menambah saldo akun.
-       - Jika amount < 0, lempar InvalidAmountException.
+       - Jika amount < 0, lempar InvalidAmountException("Nominal deposit tidak boleh negatif.").
        Tidak ada nilai kembalian. */
     public void deposit(double amount) throws InvalidAmountException {
         // Type your code
         if (amount < 0){
-            throw new InvalidAmountException("Nominal transaksi tidak boleh negatif.");
+            throw new InvalidAmountException("Nominal deposit tidak boleh negatif.");
         }
         this.balance += amount;
     }
 
     /* TODO : Lengkapi method withdraw(double amount)
        Mengurangi saldo akun.
-       - Jika amount < 0, lempar InvalidAmountException.
-       - Jika saldo < amount, lempar InsufficientBalanceException.
+       - Jika amount < 0, lempar InvalidAmountException("Nominal penarikan tidak boleh negatif.").
+       - Jika saldo < amount, lempar InsufficientBalanceException("Saldo tidak mencukupi untuk penarikan.").
        Tidak ada nilai kembalian. */
     public void withdraw(double amount)
         throws InvalidAmountException, InsufficientBalanceException {
         // Type your code
         if (amount < 0){
-            throw new InvalidAmountException("Nominal transaksi tidak boleh negatif.");
+            throw new InvalidAmountException("Nominal penarikan tidak boleh negatif.");
         }
-        else if (balance < amount){
-            throw new InsufficientBalanceException("Saldo tidak mencukupi untuk melakukan penarikan.");
+        if (balance < amount){
+            throw new InsufficientBalanceException("Saldo tidak mencukupi untuk penarikan.");
         }
         this.balance -= amount;
     }

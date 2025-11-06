@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class BankSystem {
     private BankAccount[] accounts;
     private int count;
@@ -17,16 +15,16 @@ public class BankSystem {
 
     /* TODO : Lengkapi method addAccount(BankAccount account)
        Menambahkan akun ke sistem.
-       - Jika sudah penuh, lempar IllegalStateException.
-       - Jika akun null, lempar NullPointerException.
+       - Jika sudah penuh, lempar IllegalStateException("Sistem sudah penuh.").
+       - Jika akun null, lempar NullPointerException("Akun tidak boleh null.").
        Tidak ada nilai kembalian. */
     public void addAccount(BankAccount account) {
         // Type your code
-        if (count == accounts.length){
-            throw new IllegalStateException();
+        if (count >= accounts.length){
+            throw new IllegalStateException("Sistem sudah penuh.");
         }
-        else if (account == null){
-            throw new NullPointerException();
+        if (account == null){
+            throw new NullPointerException("Akun tidak boleh null.");
         }
         accounts[count] = account;
         count++;
@@ -38,7 +36,7 @@ public class BankSystem {
        Return: objek BankAccount atau null jika tidak ada. */
     public BankAccount findAccount(String owner) {
         // Type your code
-        for (int i=0; i < count; i++){
+        for(int i=0; i<count; i++){
             if (owner.equals(accounts[i].getOwner())){
                 return accounts[i];
             }
@@ -54,14 +52,14 @@ public class BankSystem {
        Jika belum ada akun, tampilkan pesan "(tidak ada akun)". */
     public void displayAll() {
         // Type your code
-        if (count > 0){
-            System.out.println("Daftar Akun:");
-            for (int i=0; i < count; i++){
-                System.out.println("- " + accounts[i].toString());
-            }
+        if (count == 0){
+            System.out.println("(tidak ada akun)");
         }
         else{
-            System.out.println("(tidak ada akun)");
+            System.out.println("Daftar Akun:");
+            for (int i=0; i<count; i++){
+                System.out.println("- " + accounts[i].toString());
+            }
         }
     }
 }
